@@ -26,14 +26,18 @@ class App extends Component {
     render() {
 		const value = this.state.value
 		return (
-			<div>
-				<p>Таймер:</p>
-				<p>
-					<span>{Math.floor(value/INTERVAL/60/60)} : </span>
-					<span>{Math.floor(value/INTERVAL/60) % 60} : </span>
-					<span>{Math.floor(value/INTERVAL) % 60} . </span>
-					<span>{value % INTERVAL}</span>
-				</p>
+			<div class="container-fluid align-items-center">
+				<h1 class="display-1">Таймер</h1>
+				<h1 class="display-1">
+					<span><kbd>{Math.floor(value/INTERVAL/60/60)}</kbd> : </span>
+					<span><kbd>{Math.floor(value/INTERVAL/60) % 60}</kbd> : </span>
+					<span><kbd>{Math.floor(value/INTERVAL) % 60}</kbd> . </span>
+					<span><kbd>{value % INTERVAL < 10 ? '0' : ''}{value % INTERVAL}</kbd></span>
+				</h1>						
+				<div>
+					<button class="display-4">Остановить</button>&nbsp;
+					<button class="display-4">Сбросить</button>
+				</div>
 			</div>
 		);
     }
