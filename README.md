@@ -1,4 +1,4 @@
-Проект описан на Хабрахабре [https://habr.com/post/431826/]
+Проект описан на Хабрахабре [https://habr.com/post/431826](https://habr.com/post/431826)
 Проект сделан с использованием [Create React App](https://github.com/facebook/create-react-app) - и сгенерённую документацию я перевёл на русский.
 
 ## Необходимые скрипты
@@ -33,4 +33,4 @@
 Можете узнать больше в [документации Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
 
 Для изучения React, можно посмотреть официальную документацию [документацию React](https://reactjs.org/) 
-и [переводе документации React на русский](https://learn-reactjs.ru)
+и [перевод документации React на русский](https://learn-reactjs.ru)
