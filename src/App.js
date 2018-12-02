@@ -43,6 +43,8 @@ class App extends Component {
 
     render() {
 		const value = this.state.value;
+		if (this.state.stopped) document.title = "Таймер";
+		else document.title = "Таймер: "+Math.floor(value/INTERVAL/60/60)+":"+Math.floor(value/INTERVAL/60) % 60+":"+Math.floor(value/INTERVAL) % 60;
 		return (
 			<div className="container-fluid align-items-center">
 				<h1 className="display-1">Таймер</h1>
