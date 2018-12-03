@@ -8,25 +8,13 @@ class App extends Component {
     constructor(props) {
 		super(props);
 		this.state = {value: 0, stopped: false};
-		
-		// Привязка необходима, чтобы сделать this доступным в коллбэке
-		this.stopTimer = this.stopTimer.bind(this);
-		this.resetTimer = this.resetTimer.bind(this);
     }
 
     increment(){
 		if(!this.state.stopped) (this.setState({value: this.state.value + 1}));
     }
-
-    componentDidMount() {
-		this.timerID = setInterval(() => this.increment(), 1000/INTERVAL);
-    }
-
-    componentWillUnmount() {
-		clearInterval(this.timerID);
-    }
 	
-	stopTimer(){
+	stopTimer = () => {
 		this.setState({stopped: !this.state.stopped});
 		if(this.state.stopped){
 			clearInterval(this.timerID);
@@ -37,14 +25,26 @@ class App extends Component {
 		};
 	}
 
-	resetTimer(){
+	resetTimer = () => {
 		this.setState({value: 0});		
 	}
 
-    render() {
+    componentDidMount() {
+		this.timerID = setInterval(() => this.increment(), 1000/INTERVAL);
+    }
+
+    componentWillUnmount() {
+		clearInterval(this.timerID);
+    }
+
+	componentDidUpdate(){
 		const value = this.state.value;
 		if (this.state.stopped) document.title = "Таймер";
 		else document.title = "Таймер: "+Math.floor(value/INTERVAL/60/60)+":"+Math.floor(value/INTERVAL/60) % 60+":"+Math.floor(value/INTERVAL) % 60;
+	}
+	
+    render() {
+		const value = this.state.value;
 		return (
 			<div className="container-fluid align-items-center">
 				<h1 className="display-1">Таймер</h1>
